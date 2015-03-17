@@ -1,0 +1,50 @@
+html,body,p,span,button,input,h1,h2,h3 {
+font-family:'Cinzel Decorative', cursive;
+}
+
+h1#title {
+position:relative;
+color:#FFF;
+text-align:center;
+width:100%;
+font-size:35pt;
+margin: auto 0;
+padding-top: 200px;
+padding-bottom: 50px;
+}
+
+#wrap {
+width:100%;
+height:100%;
+}
+
+#search {
+position:relative;
+width:500px;
+height:100px;
+text-align:center;
+margin: 0 auto;
+/*padding-top: 50px;*/
+}
+
+.searchbtn {
+text-align:center;
+}
+
+#input_query {
+      text-align:center;
+}
+
+#background {
+width:100%;
+height:100%;
+background:url('../img/7.jpg') no-repeat center center fixed;
+background-size:cover;
+-webkit-background-size:cover;
+position:fixed;
+-webkit-filter:blur(9px);
+-moz-filter:blur(9px);
+-o-filter:blur(9px);
+-ms-filter:blur(9px);
+filter:blur(9px);
+}

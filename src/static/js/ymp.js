@@ -15,4 +15,4 @@ $("#load").click(function () {
 		count += 1;
 		$("#load").html = 'Load More';
 	});
-});
+});ㄱ근

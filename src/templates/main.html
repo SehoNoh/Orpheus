@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="http://getbootstrap.com/favicon.icon">
+        <title>
+            Our Project
+        </title>
+        <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/orpheus.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="background">
+            </div>
+            {# <p> #}
+            <h1 id="title">
+                Orpheus
+            </h1>
+            {# </p> #}
+            {# <div id="search_container"> #}
+            <form id="search" role="search">
+                <div class="form-group">
+                    <input id="input_query" type="text" class="typeahead form-control" id="searchform" autocomplete="off" placeholder="Search for Youtube Music that Suits Your Mood">
+                </div>
+                {# <div class="searchbtn">
+                    <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search">
+                    </span>
+                    </button>
+                </div> #}
+            </form>
+            {# </div> #}
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap3-typeahead.js"></script>
+        <script type="text/javascript">
+            var theme = [
+              "우울할 때 더 우울해질 수 있는 음악 리스트인데 이게 어떻게 작동하는지 하나도 모르겠다",
+              "우울할 때 더 즐거워질 수 있는 음악 리스트",
+              "발표하러 가기 전 멘탈 치유용 음악 리스"];
+            $('.typeahead').typeahead(
+              {
+                source: theme
+              }
+            );
+        </script>
+    </body>
+</html>

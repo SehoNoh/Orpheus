@@ -3,3 +3,6 @@ Flask == 0.10.1
 lxml == 3.4.2
 Pafy == 0.3.72
 requests == 2.6.0
+Flask-SQLAlchemy == 2.0
+SQLAlchemy == 0.9.9
+PyMySql == 0.6.6

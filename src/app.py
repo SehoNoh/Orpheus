@@ -1,26 +1,42 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, render_template, request, session
-from parse import parsing
+from flask import Flask, jsonify, render_template, request, session, jsonify
+from flask.ext.sqlalchemy import SQLAlchemy
+import parser
+from video_controller import VideoController
 
 app = Flask(__name__, static_url_path='')
-app.config.update(dict(
-    DEBUG=True,
-    SECRET_KEY='development key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ymp:ymp@localhost/ymp'
+app.config.update(
+	dict (
+    	DEBUG=True,
+    	SECRET_KEY='development key'
 	)
 )
 
+# DB 초기화 시작
+db = SQLAlchemy(app)
+
+from model.music import *
+from model.user import *
+from model.playlist import *
+import video_controller
+
+db.create_all()
+db.session.commit()
+# DB 초기화 끝
+
+videoController = VideoController()
+
 @app.route('/')
 def main():
-	return render_template('search.html')
+	return render_template('main.html')
 
 @app.route('/load')
 def parseTest():
-	# return jsonify({'Hello':'World'})
-
 	page = request.args.get('page')
-	p = parsing(request, page)
+	p = parser.parsing(page)
 	# print(p.keys())
 	# sample = ''
 	# a = 1
@@ -33,6 +49,16 @@ def parseTest():
 	return jsonify(p)
 # , {'Content-Type': 'application/json; charset=utf-8'}
 	# return render_template('search.html', keys=p.keys(), data=p)
+
+@app.route('/play')
+def playMusic():
+	return render_template('playlist.html')
+
+@app.route('/video/<uniqueId>')
+def getVideo(uniqueId):
+	# uniqueId = request.args.get('uniqueId')
+	# return uniqueId
+	return videoController.getVideoInfo(uniqueId)
 
 if __name__ == '__main__':
 	app.run()

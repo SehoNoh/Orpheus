@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Playlist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="js/jplayer.playlist.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+            new jPlayerPlaylist({
+        jPlayer: "#jquery_jplayer_1",
+        cssSelectorAncestor: "#jp_container_1"
+    }, [
+        {
+            title:"Cro Magnon Man", artist:"nugunugu",
+            mp3:"http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
+            oga:"http://www.jplayer.org/audio/ogg/TSP-01-Cro_magnon_man.ogg"
+        },
+        {
+            title:"Your Face", artist:"nugunugu",
+            mp3:"http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+            oga:"http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg"
+        },
+        {
+            title:"Cyber Sonnet", artist:"nugunugu",
+            mp3:"http://www.jplayer.org/audio/mp3/TSP-07-Cybersonnet.mp3",
+            oga:"http://www.jplayer.org/audio/ogg/TSP-07-Cybersonnet.ogg"
+        },
+        {
+            title:"Tempered Song", artist:"nugunugu",
+            mp3:"http://www.jplayer.org/audio/mp3/Miaow-01-Tempered-song.mp3",
+            oga:"http://www.jplayer.org/audio/ogg/Miaow-01-Tempered-song.ogg"
+        },
+        {
+            title:"Hidden", artist:"nugunugu",
+            mp3:"http://www.jplayer.org/audio/mp3/Miaow-02-Hidden.mp3",
+            oga:"http://www.jplayer.org/audio/ogg/Miaow-02-Hidden.ogg"
+        },
+        {
+            title:"Lismore", artist:"nugunugu",
+            mp3:"http://www.jplayer.org/audio/mp3/Miaow-04-Lismore.mp3",
+            oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
+        },
+    ], {
+        playlistOptions: {
+            enableremovecontrols: true
+        },
+        swfPath: "js/jplayer.swf",
+        supplied: "oga, mp3",
+        wmode: "window",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+    });
+});
+    //   $("#jquery_jplayer_1").jPlayer({
+    //     ready: function () {
+    //       $(this).jPlayer("setMedia", {
+    //         title: "Bubble",
+    //         m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+    //         oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+    //       });
+    //     },
+    //     cssSelectorAncestor: "#jp_container_1",
+    //     swfPath: "/js/jplayer.swf",
+    //     supplied: "mp3, mp4, m4a, oga",
+    //     useStateClassSkin: true,
+    //     autoBlur: false,
+    //     smoothPlayBar: true,
+    //     keyEnabled: true,
+    //     remainingDuration: true,
+    //     toggleDuration: true
+    //   });
+    // });
+</script>
+<style>
+    .jp-audio {
+        width: 420px;
+        margin: auto auto;
+    }
+    .image {
+        margin-top: 10%;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div class="image">
+    <img src="img/1.jpg" height="300px" width="420px">
+</div>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+    <div class="jp-type-playlist">
+        <div class="jp-gui jp-interface">
+            <div class="jp-controls">
+                <button class="jp-previous" role="button" tabindex="0">previous</button>
+                <button class="jp-play" role="button" tabindex="0">play</button>
+                <button class="jp-next" role="button" tabindex="0">next</button>
+                <button class="jp-stop" role="button" tabindex="0">stop</button>
+            </div>
+            <div class="jp-progress">
+                <div class="jp-seek-bar">
+                    <div class="jp-play-bar"></div>
+                </div>
+            </div>
+            <div class="jp-volume-controls">
+                <button class="jp-mute" role="button" tabindex="0">mute</button>
+                <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                <div class="jp-volume-bar">
+                    <div class="jp-volume-bar-value"></div>
+                </div>
+            </div>
+            <div class="jp-time-holder">
+                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+            </div>
+            <div class="jp-toggles">
+                <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+            </div>
+        </div>
+        <div class="jp-playlist">
+            <ul>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
