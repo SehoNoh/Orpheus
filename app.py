@@ -7,7 +7,7 @@ import parser
 from video_controller import VideoController
 
 app = Flask(__name__, static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ymp:ymp@localhost/ymp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://orpheus:orpheus@localhost/orpheus'
 app.config.update(
 	dict (
     	DEBUG=True,
