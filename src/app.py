@@ -36,7 +36,13 @@ def main():
 @app.route('/load')
 def parseTest():
 	page = request.args.get('page')
-	p = parser.parsing(page)
+	query = request.args.get('query')
+
+	# if page is 0 or page == '':
+	p = parser.parse(query, 0)
+	print(jsonify(p))
+	# else:
+		# p = parser.parsing(page)
 	# print(p.keys())
 	# sample = ''
 	# a = 1

@@ -2,49 +2,104 @@ html,body,p,span,button,input,h1,h2,h3 {
 font-family:'Cinzel Decorative', cursive;
 }
 
+body {	
+    overflow:inline;
+}
+
 h1#title {
 position:relative;
 color:#FFF;
 text-align:center;
-width:100%;
 font-size:35pt;
 margin: auto 0;
-padding-top: 200px;
+margin-bottom: 30px;
+}
+
+#header {
+padding-top: 80px;
 padding-bottom: 50px;
+
+-webkit-transition-property: padding-top;
+-moz-transition-property: padding-top;
+-o-transition-property: padding-top;
+-ms-transition-property: padding-top;
+transition-property: padding-top;
+
+-webkit-transition-duration: 2s;
+-moz-transition-duration: 2s;
+-o-transition-duration: 2s;
+-ms-transition-duration: 2s;
+transition-duration: 2s;
 }
 
 #wrap {
 width:100%;
+max-width: 1200px
 height:100%;
 }
 
 #search {
 position:relative;
 width:500px;
-height:100px;
 text-align:center;
 margin: 0 auto;
 /*padding-top: 50px;*/
 }
 
-.searchbtn {
-text-align:center;
-}
-
-#input_query {
-      text-align:center;
-}
-
 #background {
 width:100%;
 height:100%;
-background:url('../img/7.jpg') no-repeat center center fixed;
-background-size:cover;
+background:url('../img/7_edited.jpg') no-repeat center center fixed;
 -webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+-ms-background-size:cover;
+background-size:cover;
 position:fixed;
 -webkit-filter:blur(9px);
 -moz-filter:blur(9px);
 -o-filter:blur(9px);
 -ms-filter:blur(9px);
 filter:blur(9px);
+}
+
+#header.loading {
+padding-top: 80px;
+}
+
+#container {
+	position: relative;
+	margin: 50px;
+	height: auto;
+}
+
+.music_card {
+width: 200px;
+position: relative;
+float: left;
+margin: 30px;
+	display: inline-block;
+
+	-webkit-column-break-inside: avoid;
+	column-break-inside: avoid;
+	border: 2px solid #FAFAFA;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    cursor: pointer;
+}
+
+.music_card > img {
+	width: 100%;
+	height: auto;
+}
+
+#player_container {
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	bottom: 0;
+	background-color: #ABCDEF;
 }

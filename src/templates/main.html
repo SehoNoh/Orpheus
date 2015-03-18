@@ -1,55 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="http://getbootstrap.com/favicon.icon">
-        <title>
-            Our Project
-        </title>
-        <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/orpheus.css" rel="stylesheet">
-    </head>
-    <body>
-        <div id="wrap">
-            <div id="background">
-            </div>
-            {# <p> #}
-            <h1 id="title">
-                Orpheus
-            </h1>
-            {# </p> #}
-            {# <div id="search_container"> #}
-            <form id="search" role="search">
-                <div class="form-group">
-                    <input id="input_query" type="text" class="typeahead form-control" id="searchform" autocomplete="off" placeholder="Search for Youtube Music that Suits Your Mood">
-                </div>
-                {# <div class="searchbtn">
-                    <button class="btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search">
-                    </span>
-                    </button>
-                </div> #}
-            </form>
-            {# </div> #}
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap3-typeahead.js"></script>
-        <script type="text/javascript">
-            var theme = [
-              "우울할 때 더 우울해질 수 있는 음악 리스트인데 이게 어떻게 작동하는지 하나도 모르겠다",
-              "우울할 때 더 즐거워질 수 있는 음악 리스트",
-              "발표하러 가기 전 멘탈 치유용 음악 리스"];
-            $('.typeahead').typeahead(
-              {
-                source: theme
-              }
-            );
-        </script>
-    </body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="http://getbootstrap.com/favicon.icon"/>
+    <title>
+      Orpheus - Muse for everyone
+    </title>
+    <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/orpheus.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="background">
+      </div>
+      <div id="header">
+        <h1 id="title">
+          Orpheus
+        </h1>
+        
+        <input id="search" type="text" class="typeahead form-control" autocomplete="off" placeholder="Search for Youtube Music that Suits Your Mood" autofocus/>
+      </div>
+
+      <div id="container">
+      </div>
+
+      <div id="player_container">
+        <audio id="player" src="http://r10---sn-oguesn7d.googlevideo.com/videoplayback?id=d1d625bdd2dd2bdc&amp;itag=141&amp;source=youtube&amp;pl=21&amp;mv=m&amp;ms=au&amp;nh=IgpwcjAxLm5ydDE5KgkxMjcuMC4wLjE&amp;mm=31&amp;ratebypass=yes&amp;mime=audio/mp4&amp;gir=yes&amp;clen=8896803&amp;lmt=1393747137028760&amp;dur=279.034&amp;upn=W9PQpJHI24k&amp;key=dg_yt0&amp;fexp=900720,907263,927622,934954,937835,9405982,9406832,9406840,9406918,9407103,9407440,9407912,943610,945097,948124,948913,951511,951703,952302,952612,952901,955301,957201,959701,961404,962717,964738&amp;sver=3&amp;signature=4B426AB95C91FBF18E387191FCB555B7E8A5128E.3B8365230940D22452E1AD79E2099033595986BA&amp;mt=1426644578&amp;ip=124.66.184.4&amp;ipbits=0&amp;expire=1426666263&amp;sparams=ip,ipbits,expire,id,itag,source,pl,mv,ms,nh,mm,ratebypass,mime,gir,clen,lmt,dur" autoplay controls preload="auto"}></audio>
+        PLAYER
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap3-typeahead.js"></script>
+    <script src="js/audio.min.js"></script>
+    <script src="js/ymp.js"></script>
+    <script type="text/javascript">
+      var theme = [
+        "우울할 때 더 우울해질 수 있는 음악 리스트인데 이게 어떻게 작동하는지 하나도 모르겠다",
+        "우울할 때 더 즐거워질 수 있는 음악 리스트",
+        "발표하러 가기 전 멘탈 치유용 음악 리스"];
+      $('.typeahead').typeahead(
+        {
+          source: theme
+        }
+      );
+
+
+
+// audiojs.events.ready(function() {
+//     var as = audiojs.createAll();
+//     });
+    </script>
+  </body>
 </html>

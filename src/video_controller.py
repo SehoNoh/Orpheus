@@ -2,36 +2,40 @@
 # -*- coding: utf-8 -*-
 
 import pafy, json
+# from model.music import *
 
 YOUTUBE_URL = 'https://youtube.com/watch?v='
 
 class VideoController:
-
-	def getVideoInfo(uniqueId):
+	def getVideoInfo(self, uniqueId):
 		VIDEO_URL = YOUTUBE_URL + uniqueId
 		video = pafy.new(VIDEO_URL)
-		video = data.Video(video.title, video.videoid, video.duration, video.published, video.thumb)
+
+		from model.music import Music
+		rawMusic = Music(video.title, video.videoid, video.length, video.thumb, video.audiostreams[0].url)
 	# print(video)
 		# def __init__ (self, title, unique_id, duration, date, thumbnail):
 	# return json.dumps(video)
 	# print(video)
 		result = dict({
-			"title": video.title,
-			"unique_id": video.uniqueId,
-			"duration": video.duration,
-			"date": video.date,
-			"thumbnail": video.thumbnail
+			"title": rawMusic.title,
+			"unique_id": rawMusic.uniqueId,
+			"length": rawMusic.length,
+			"src": rawMusic.src,
+			"cover_image_url": rawMusic.coverImageUrl
 		})
 
 
-	# id = db.Column(db.Integer, primary_key=True)
-	# title = db.Column(db.String(50))
-	# unique_id = db.Column(db.String(10), unique=True)
-	# duration = db.Column(db.String(10))
-	# date = db.Column(db.String(30))
-	# thumbnail = db.Column(db.String(100))
+	
+	# index = db.Column(db.Integer, primary_key=True)
+	# title = db.Column(db.TEXT, nullable=False)
+	# uniqueId = db.Column('unique_id', db.String(15), nullable=False)
+	# length = db.Column(db.Integer, nullable=False)
+	# coverImageUrl = db.Column('cover_image_url', db.TEXT, nullable=False)
+	# src = db.Column(db.TEXT, nullable=False)
 
 	# print(result)
+		print(result)
 		return json.dumps(result)
 
 # Title: EPIK HIGH - BORN HATER M/V
