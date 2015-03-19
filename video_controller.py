@@ -11,18 +11,19 @@ class VideoController:
 		VIDEO_URL = YOUTUBE_URL + uniqueId
 		video = pafy.new(VIDEO_URL)
 
-		from model.music import Music
-		rawMusic = Music(video.title, video.videoid, video.length, video.thumb, video.audiostreams[0].url)
+		# from model.music import Music
+		# rawMusic = Music(video.title, video.videoid, video.length, video.thumb, video.audiostreams[0].url)
+		(video.title, video.videoid, video.length, video.thumb, video.audiostreams[0].url)
 	# print(video)
 		# def __init__ (self, title, unique_id, duration, date, thumbnail):
 	# return json.dumps(video)
 	# print(video)
 		result = dict({
-			"title": rawMusic.title,
-			"unique_id": rawMusic.uniqueId,
-			"length": rawMusic.length,
-			"src": rawMusic.src,
-			"cover_image_url": rawMusic.coverImageUrl
+			"title": video.title,
+			"unique_id": video.videoid,
+			"length": video.length,
+			"src": video.audiostreams[0].url,
+			"cover_image_url": video.bigthumb
 		})
 
 

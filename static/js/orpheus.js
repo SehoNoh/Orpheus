@@ -65,10 +65,11 @@ $("#search").keypress(function(event) {
         var dom = '';
         var START_TAG = '<div class="music_card" id="';
         var CENTER_TAG = '" title="';
-        var CENTER_2_TAG ='"><img src="';
-        var CENTER_3_TAG = '"/><p class="music_card_content"><span class="music_title">'
-        var CENTER_4_TAG = '</span><span class="music_length">'
-        var CENTER_5_TAG = '</span><span class="music_uploader">'
+        var CENTER_2_TAG = '" author="';
+        var CENTER_3_TAG ='"><img src="';
+        var CENTER_4_TAG = '"/><p class="music_card_content"><span class="music_title">'
+        var CENTER_5_TAG = '</span><span class="music_length">'
+        var CENTER_6_TAG = '</span><span class="music_uploader">'
         var END_TAG = '</span></p></div>'
         var query = $(this).val();
 
@@ -94,12 +95,14 @@ $("#search").keypress(function(event) {
                 dom += CENTER_TAG;
                 dom += value.title;
                 dom += CENTER_2_TAG;
-                dom += value.imgSrc;
+                dom += value.author;
                 dom += CENTER_3_TAG;
-                dom += value.title;
+                dom += value.imgSrc;
                 dom += CENTER_4_TAG;
-                dom += (min + '분 '+ sec +'초 ');
+                dom += value.title;
                 dom += CENTER_5_TAG;
+                dom += (min + '분 '+ sec +'초 ');
+                dom += CENTER_6_TAG;
                 dom += value.author;
                 dom += END_TAG;
 
@@ -110,9 +113,11 @@ $("#search").keypress(function(event) {
 
             $("#container").html(dom);
 
-            $(".music_card > img").click(function() {
+            $(".music_card").click(function() {
                 var uniqueId = $(this).attr("id");
+                var imgSrc = "http://i.ytimg.com/vi/" + uniqueId + "/sddefault.jpg";
                 var title = $(this).attr("title");
+                var author = $(this).attr("author");
                 $.get("/video/" + uniqueId, function(data) {
                     ga('send', 'event', 'player', 'play', ('TITLE : "' + title + '" / Unique ID : "' + uniqueId + '"'));
                     src = JSON.parse(data);
@@ -120,6 +125,10 @@ $("#search").keypress(function(event) {
                     $("#player").attr("src", src["src"]);
                     $("#player").attr("uniqueId", uniqueId);
                     $("#player").attr("title", title);
+
+                    $("#playing_album_cover").attr("src", imgSrc);
+                    $("#playing_title").text(title);
+                    $("#playing_uploader").text(author);
                     playlist.push(uniqueId);
                     // alert(playlist);
                 });

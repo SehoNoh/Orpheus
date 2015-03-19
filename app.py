@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, jsonify, render_template, request, session, jsonify
-from flask.ext.sqlalchemy import SQLAlchemy
+# from flask.ext.sqlalchemy import SQLAlchemy
 import parser
 from video_controller import VideoController
 
 app = Flask(__name__, static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://orpheus:orpheus@localhost/orpheus'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://orpheus:orpheus@localhost/orpheus'
 app.config.update(
 	dict (
     	DEBUG=True,
@@ -16,15 +16,15 @@ app.config.update(
 )
 
 # DB 초기화 시작
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
-from model.music import *
-from model.user import *
-from model.playlist import *
+# from model.music import *
+# from model.user import *
+# from model.playlist import *
 import video_controller
 
-db.create_all()
-db.session.commit()
+# db.create_all()
+# db.session.commit()
 # DB 초기화 끝
 
 videoController = VideoController()

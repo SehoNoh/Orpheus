@@ -151,3 +151,30 @@ width: 30%;
 	background-color: #000;
 	opacity: 0.2;
 }
+
+#playing_album_cover {
+	width: 80px;
+	height: 80px;
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
+
+#playing_content_container {
+	margin: 0 auto;
+	padding: 15px 3px 0px 3px
+}
+
+#playing_title {
+	display: block;
+	font-family: sans-serif;
+color: #FFF;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+#playing_uploader {
+	display: block;
+	font-family: sans-serif;    
+	color: #FFF;
+	text-shadow: 2px 2px 4px #000000;
+}

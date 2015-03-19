@@ -17,7 +17,6 @@ def parse(query, page):
 	# print(cookies['YSC'])
 	# print(cookies['PREF'])
 	# print(cookies['VISITOR_INFO1_LIVE'])
-
 	session['YSC'] = cookies['YSC']
 	session['PREF'] = cookies['PREF']
 	session['VISITOR_INFO1_LIVE'] = cookies['VISITOR_INFO1_LIVE']
