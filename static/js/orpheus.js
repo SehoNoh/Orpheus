@@ -23,7 +23,7 @@ $("#player").bind("ended", function() {
     var index = playlist.indexOf(nowPlayId);
 
     if (index == (playlist.length - 1)) {
-        alert("This is last song. The player will play music from first");
+        // alert("This is last song. The player will play music from first");
 
         var uniqueId = playlist[0];
         $.get("/video/" + uniqueId, function(data) {
@@ -35,7 +35,7 @@ $("#player").bind("ended", function() {
             // alert(playlist);
         });
     } else {
-        alert("The player will play next music");
+        // alert("The player will play next music");
 
         var uniqueId = playlist[index + 1];
         $.get("/video/" + uniqueId, function(data) {
@@ -100,7 +100,7 @@ $("#search").keypress(function(event) {
                     $("#player").attr("uniqueId", uniqueId);
                     $("#player").attr("title", title);
                     playlist.push(uniqueId);
-                    alert(playlist);
+                    // alert(playlist);
                 });
             });
         });           
