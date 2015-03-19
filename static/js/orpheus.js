@@ -17,10 +17,43 @@ $("#load").click(function() {
     });
 });
 
+
+$("#player").bind("ended", function() {
+    var nowPlayId = $("#player").attr("uniqueId");
+    var index = playlist.indexOf(nowPlayId);
+
+    if (index == (playlist.length - 1)) {
+        alert("This is last song. The player will play music from first");
+
+        var uniqueId = playlist[0];
+        $.get("/video/" + uniqueId, function(data) {
+            src = JSON.parse(data);
+            console.log(src["src"]);
+            $("#player").attr("src", src["src"]);
+            $("#player").attr("uniqueId", uniqueId);
+            // playlist.push(uniqueId);
+            // alert(playlist);
+        });
+    } else {
+        alert("The player will play next music");
+
+        var uniqueId = playlist[index + 1];
+        $.get("/video/" + uniqueId, function(data) {
+            src = JSON.parse(data);
+            console.log(src["src"]);
+            $("#player").attr("src", src["src"]);
+            $("#player").attr("uniqueId", uniqueId);
+            // playlist.push(uniqueId);
+            // alert(playlist);
+        });
+    }
+});
+
+
 $("#search").keypress(function(event) {
-	// alert("Event : " + event.which);
+    // alert("Event : " + event.which);
     if (event.which == 13) {
-    	// alert("");
+        // alert("");
         event.preventDefault();
         $("#header").addClass('loading');
 
@@ -44,8 +77,6 @@ $("#search").keypress(function(event) {
 
             $("#container").html(dom);
 
-
-
             $(".music_card").click(function() {
                 var uniqueId = $(this).attr("id");
                 $.get("/video/" + uniqueId, function(data) {
@@ -59,9 +90,4 @@ $("#search").keypress(function(event) {
             });
         });
     }
-});
-
-$("#player").bind("ended", function() {
-    var nowPlayId = $("#player").attr("uniqueId");
-    alert(nowPlayId);
 });
